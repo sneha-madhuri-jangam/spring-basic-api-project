@@ -12,7 +12,7 @@
 	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<!-- <packaging>jar</packaging> -->
+	<!-- <packaging>jar</packaging> fo rlocal -->
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -29,7 +29,8 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>18</java.version>
+		<!-- <java.version>18</java.version> for local-->
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -64,6 +65,17 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<!-- Maven Compiler Plugin u can remove this below plugin if you want to run local -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.14.0</version> <!-- Plugin version -->
+            <configuration>
+                <source>17</source>  <!-- Java source version -->
+                <target>17</target>  <!-- Java bytecode version -->
+            </configuration>
+        </plugin>
 		</plugins>
 	</build>
 
