@@ -7,21 +7,36 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 // import org.springframework.boot.web.servlet.error.ErrorPageFilter;
 // import org.springframework.context.annotation.Bean;
 
+// @SpringBootApplication
+// public class DemoApplication extends SpringBootServletInitializer{
+
+// 	public static void main(String[] args) {
+// 		SpringApplication.run(DemoApplication.class, args);
+// 	}
+
+// 	// Prevent ErrorPageFilter conflict when deploying to external Tomcat
+//     // @Bean
+//     // public FilterRegistrationBean<ErrorPageFilter> disableSpringBootErrorFilter(ErrorPageFilter filter) {
+//     //     FilterRegistrationBean<ErrorPageFilter> registration = new FilterRegistrationBean<>(filter);
+//     //     registration.setEnabled(false);
+//     //     return registration;
+//     // }
+
+// }
+
+
 @SpringBootApplication
-public class DemoApplication extends SpringBootServletInitializer{
+public class DemoApplication extends SpringBootServletInitializer {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(DemoApplication.class);
+    }
 
-	// Prevent ErrorPageFilter conflict when deploying to external Tomcat
-    // @Bean
-    // public FilterRegistrationBean<ErrorPageFilter> disableSpringBootErrorFilter(ErrorPageFilter filter) {
-    //     FilterRegistrationBean<ErrorPageFilter> registration = new FilterRegistrationBean<>(filter);
-    //     registration.setEnabled(false);
-    //     return registration;
-    // }
-
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 }
+
 
 
